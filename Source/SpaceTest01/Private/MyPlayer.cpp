@@ -142,13 +142,13 @@ void AMyPlayer::HitByTarget()
 {
 	lives--;
 	if (lives <= 0) {
-		
 
 		//add Ui to this
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("YOU DEAD AHAHAHH AHAHXDXDXDXD"));
 		UGameplayStatics::SetGamePaused(GetWorld(), true);
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("YOU DEAD AHAHAHH AHAHXDXDXDXD"));
 		//game over
+		/*UGameplayStatics::OpenLevel(GetWorld(), TEXT("/Game/Levels/GameOver.GameOver'"));*/
 	}
 }
 
