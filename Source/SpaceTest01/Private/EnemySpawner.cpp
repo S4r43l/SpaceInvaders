@@ -62,6 +62,7 @@ void AEnemySpawner::SpawnEnemy()
 	WaveCount++;
 	if (WaveCount > 3) {
 		hasWon = true;
+		UGameplayStatics::OpenLevel(GetWorld(), TEXT("/Game/Levels/Victory.Victory'"));
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Green, TEXT("YOU WIN!"));
 		UGameplayStatics::SetGamePaused(GetWorld(), true);
 		//UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
