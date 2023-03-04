@@ -95,6 +95,11 @@ public:
 		void Shoot(const FInputActionValue& val);
 	UFUNCTION(BlueprintCallable)
 		void Reset(const FInputActionValue& val);
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+	FString defeat;
+
 
 private:
 	float XInput;

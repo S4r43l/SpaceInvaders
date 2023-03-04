@@ -15,11 +15,11 @@ AEnemySpawner::AEnemySpawner()
 	AmoutOfEnemies = 3;
 	enemiesDefeated = 0;
 
-	MaxX = 2000;
-	MaxY = 2000;
+	MaxX = 200;
+	MaxY = 70;
 
-	MinX = 400;
-	MaxY = -400;
+	MinX = 120;
+	MaxY = -70;
 
 }
 

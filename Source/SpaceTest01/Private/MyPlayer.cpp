@@ -37,8 +37,8 @@ AMyPlayer::AMyPlayer()
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("Camera");
 	CameraComponent->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 
-	Ammo = 100;
-	MaxAmmo = 100;
+	Ammo = 10;
+	MaxAmmo = 10;
 	lives = 10;
 	MovementSpeed = 1000;
 	APlayerController* PlayerController = Cast<APlayerController>(Controller);
@@ -60,6 +60,7 @@ void AMyPlayer::BeginPlay()
 
 		}
 	}
+	defeat = "";
 	
 }
 
@@ -144,10 +145,12 @@ void AMyPlayer::HitByTarget()
 	if (lives <= 0) {
 
 		//add Ui to this
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("YOU DEAD AHAHAHH AHAHXDXDXDXD"));
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("YOU DEAD AHAHAHH AHAHXDXDXDXD"));
 		UGameplayStatics::SetGamePaused(GetWorld(), true);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("YOU DEAD AHAHAHH AHAHXDXDXDXD"));
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("YOU DEAD AHAHAHH AHAHXDXDXDXD"));
 		//game over
+		defeat = "You are defeated";
+
 		/*UGameplayStatics::OpenLevel(GetWorld(), TEXT("/Game/Levels/GameOver.GameOver'"));*/
 	}
 }

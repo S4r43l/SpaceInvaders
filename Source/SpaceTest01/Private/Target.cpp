@@ -15,12 +15,12 @@ ATarget::ATarget()
 
 	Collider = CreateDefaultSubobject<UBoxComponent>(TEXT("Collider"));
 	SetRootComponent(Collider);
-	Collider->InitBoxExtent(FVector(10, 50, 50));
+	Collider->InitBoxExtent(FVector(50, 50, 50));
 	Collider->OnComponentBeginOverlap.AddDynamic(this, &ATarget::OnOverlap);
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	StaticMesh->SetupAttachment(GetRootComponent());
-	StaticMesh->SetRelativeScale3D(FVector(0.1f, 1.f, 1.f));
+	StaticMesh->SetRelativeScale3D(FVector(1.f, 1.f, 1.f));
 	StaticMesh->SetRelativeLocation(FVector(0.f, 0.f, 40.f));
 
 	MovementSpeed = 350;
