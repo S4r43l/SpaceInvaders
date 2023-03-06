@@ -197,23 +197,11 @@ void AMyPlayer::Shoot(const FInputActionValue& val)
 	if (Ammo > 0) {
 		
 	
+		Ammo--;
+		GetWorld()->SpawnActor<AActor>(Bullet_BP, 
+		GetActorLocation() + FVector(30.f,0.f,0.f), GetActorRotation());
 
-
-		if ((Controller != nullptr) && (YInput != 0.0f))
-		{
-			FRotator Rotation = Controller->GetControlRotation();
-			Rotation.Pitch = 0.f;
-			Rotation.Roll = 0.f;
-			// get the local forward vector normalized
-			FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y);
-			//SetActorLocation(GetActorLocation() + (Direction * YInput * MovementSpeed * DeltaTime));
-
-			//SetActorRotation(Rotation);
-			GetWorld()->SpawnActor<AActor>(Bullet_BP,
-				GetActorLocation() + (Direction * 50.0f), Rotation);
-			Ammo--;
-
-		}
+		
 	}
 	
 }
@@ -231,9 +219,7 @@ void AMyPlayer::Shoot(const FInputActionValue& val)
 //void AMyPlayer::Shoot()
 //{
 //	/*if (Ammo > 0) {
-//		Ammo--;
-//		GetWorld()->SpawnActor<AActor>(Bullet_BP, 
-//			GetActorLocation() + FVector(30.f,0.f,0.f), GetActorRotation());
+//		
 //
 //	}*/
 //}
